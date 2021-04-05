@@ -35,10 +35,16 @@ const BookingForm = () => {
     checkVal(e);
   };
 
-  const bookSlot = () => {
-    sessionStorage.setItem(`bookedDate-${state.bookingInfo.id}`, state.bookingInfo.date);
-    sessionStorage.setItem(`bookedTime-${state.bookingInfo.id}`, state.bookingInfo.time);
-  }
+  const bookSlot = useCallback((e) => {
+    if (isFormValid) {
+      sessionStorage.setItem(`bookedDate-${state.bookingInfo.id}`, state.bookingInfo.date);
+      sessionStorage.setItem(`bookedTime-${state.bookingInfo.id}`, state.bookingInfo.time);
+    }
+    else {
+      alert("Please fill out all required fields and check the T&C checkbox.");
+      e.preventDefault();
+    }
+  }, [isFormValid])
 
   useEffect(() => {
     formValidityHandle();
