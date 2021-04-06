@@ -44,7 +44,7 @@ const BookingForm = () => {
       alert("Please fill out all required fields and check the T&C checkbox.");
       e.preventDefault();
     }
-  }, [isFormValid])
+  }, [isFormValid, state.bookingInfo.id, state.bookingInfo.date, state.bookingInfo.time])
 
   useEffect(() => {
     formValidityHandle();

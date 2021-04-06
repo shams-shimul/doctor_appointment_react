@@ -40,6 +40,9 @@ const Schedule = () => {
                 <div className="patient-details">
                   <h5 className="mb-0">Specialist Doctor</h5>
                 </div>
+                <div className="patient-details">
+                  <h5 className="mb-0 mt-1">Consultation Session: {state.data.visitDurationInMin} Minutes</h5>
+                </div>
               </div>
             </div>
           </div>
